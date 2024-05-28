@@ -13,6 +13,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public event Action OnMousePress;
     public event Action OnMouseRelease;
+    public bool MouseOverUI;
 
     private void Awake()
     {

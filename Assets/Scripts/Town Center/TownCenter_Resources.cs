@@ -28,4 +28,10 @@ public class TownCenter_Resources : MonoBehaviour
         }
         return null;
     }
+
+    public bool HasResource(Resource resource)
+    {
+        if (SockpileResource(resource.Type) == null) return false;
+        return SockpileResource(resource.Type).Amount >= resource.Amount;
+    }
 }

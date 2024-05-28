@@ -9,10 +9,12 @@ public class UI : MonoBehaviour
     [SerializeField] public UI_Swarm swarm;
     [SerializeField] public UI_Resources resources;
     [SerializeField] public UI_SelectionIndicator selectionIndicator;
+    [SerializeField] public UI_BuildMenu buildMenu;
 
     public static UI_Swarm Swarm => Instance.swarm;
     public static UI_Resources Resources => Instance.resources;
     public static UI_SelectionIndicator SelectionIndicator => Instance.selectionIndicator;
+    public static UI_BuildMenu BuildMenu => Instance.buildMenu;
 
     private void Awake()
     {
@@ -25,5 +27,6 @@ public class UI : MonoBehaviour
     private void Start()
     {
         selectionIndicator.gameObject.SetActive(false);
+        buildMenu.gameObject.SetActive(false);
     }
 }

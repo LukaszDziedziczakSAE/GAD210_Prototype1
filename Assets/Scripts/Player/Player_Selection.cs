@@ -45,17 +45,30 @@ public class Player_Selection : MonoBehaviour
 
     private void Input_OnMousePress()
     {
-        if (!Swarm.HasIdleMember) return;
+        if (player.Input.MouseOverUI) return;
 
         Ray ray = player.Camera.ScreenPointToRay(player.Input.MousePosition);
         //Debug.DrawRay(ray.origin, ray.direction * rayCastDistance, Color.red, 10f);
         if (Physics.Raycast(ray, out RaycastHit hit, rayCastDistance, Game.LocationLayer))
         {
-            selectionStartTime = Time.time;
-            UI.SelectionIndicator.gameObject.SetActive(true);
+            if (hit.collider.TryGetComponent<TownCenter>(out TownCenter townCenter))
+            {
+                UI.BuildMenu.gameObject.SetActive(true);
+            }
 
-            Location location = hit.collider.GetComponent<Location>();
-            selectedLocation = location;
+            else if (Swarm.HasIdleMember)
+            {
+                selectionStartTime = Time.time;
+                UI.SelectionIndicator.gameObject.SetActive(true);
+
+                Location location = hit.collider.GetComponent<Location>();
+                selectedLocation = location;
+            }
+        }
+
+        else if (UI.BuildMenu.gameObject.activeSelf)
+        {
+            UI.BuildMenu.gameObject.SetActive(false);
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Resource : IEquatable<Resource>
 {
     [field: SerializeField] public EType Type {  get; private set; }
