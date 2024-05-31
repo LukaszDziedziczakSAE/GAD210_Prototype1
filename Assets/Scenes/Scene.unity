@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Collider>k__BackingField: {fileID: 960845920}
   localAreaSize: 0
-  <JobName>k__BackingField: Wood Gathering
+  <JobName>k__BackingField: Iron Ore Gathering
   <JobDuration>k__BackingField: 5
   <ResourceType>k__BackingField: 4
   <Cost>k__BackingField:
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Collider>k__BackingField: {fileID: 1432375557}
   localAreaSize: 0
-  <JobName>k__BackingField: Iron Ore Gathering
+  <JobName>k__BackingField: Stone Gathering
   <JobDuration>k__BackingField: 5
   <ResourceType>k__BackingField: 2
   <Cost>k__BackingField:
