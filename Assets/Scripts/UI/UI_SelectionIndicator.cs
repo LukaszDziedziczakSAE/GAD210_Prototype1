@@ -9,6 +9,8 @@ public class UI_SelectionIndicator : MonoBehaviour
 
     [SerializeField] RectTransform rectTransform;
     [SerializeField] UnityEngine.UI.Image indicator;
+    [SerializeField] Color regularColor;
+    [SerializeField] Color notUsableColor;
 
     private void Update()
     {
@@ -26,4 +28,11 @@ public class UI_SelectionIndicator : MonoBehaviour
         //print("setting indicator progress = " + progress);
         indicator.fillAmount = progress;
     }
+
+    public void SetColor(bool usable)
+    {
+        indicator.color = usable ? regularColor : notUsableColor;
+    }
+
+    public bool UsableState => indicator.color == regularColor;
 }

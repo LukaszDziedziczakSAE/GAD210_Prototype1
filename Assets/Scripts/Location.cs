@@ -8,6 +8,10 @@ public class Location : MonoBehaviour
     [SerializeField] float localAreaSize;
     [field: SerializeField] public string JobName { get; private set; }
 
+    private void Awake()
+    {
+        if (Collider == null) Collider = GetComponent<BoxCollider>();
+    }
 
     public Vector3 LocalAreaPosition
     {

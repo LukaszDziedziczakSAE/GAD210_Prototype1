@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0ffe41792306040ac43e034cabcb31, type: 3}
-  m_Name: WoodPlankMaker
+  m_Name: Housing
   m_EditorClassIdentifier: 
-  <BuildingPrefab>k__BackingField: {fileID: 6972637241055347386, guid: cac141f272fa77e49bf5e189b57aeb3b,
+  <BuildingPrefab>k__BackingField: {fileID: 4406219579515283749, guid: 18048d9d08a490c4da3488338152f971,
     type: 3}
-  <Type>k__BackingField: 3
-  <BuildingName>k__BackingField: Wood Plank Maker
+  <Type>k__BackingField: 0
+  <BuildingName>k__BackingField: Housing
   <Icon>k__BackingField: {fileID: 0}
   <BuildCost>k__BackingField:
-  - <Type>k__BackingField: 1
-    <Amount>k__BackingField: 10
-  - <Type>k__BackingField: 2
+  - <Type>k__BackingField: 3
     <Amount>k__BackingField: 10

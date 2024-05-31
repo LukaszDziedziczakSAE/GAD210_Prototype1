@@ -16,7 +16,10 @@ public class UI_Resources : MonoBehaviour
         foreach (Resource resource in townCenter_Resources.Stockpile)
         {
             UI_ResourceListItem resourceListItem = Instantiate(resourceListItemPrefab, transform);
-            resourceListItem.Initilize(resource.Amount.ToString() + " " + resource.Type.ToString());
+            string resourceName = resource.Type.ToString();
+            if (resourceName == "WoodPlanks") resourceName = "Wood Planks";
+            else if (resourceName == "IronOre") resourceName = "Iron Ore";
+            resourceListItem.Initilize(resource.Amount.ToString() + " " + resourceName);
             list.Add(resourceListItem);
         }
     }

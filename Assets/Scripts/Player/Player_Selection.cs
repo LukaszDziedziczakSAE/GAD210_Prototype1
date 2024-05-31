@@ -24,13 +24,25 @@ public class Player_Selection : MonoBehaviour
 
     private void Update()
     {
-        if (UI.SelectionIndicator.gameObject.activeSelf)
+        if (UI.SelectionIndicator.gameObject.activeSelf && UI.SelectionIndicator.UsableState)
         {
             UI.SelectionIndicator.SetProgress(selectionProgress);
             if (selectionProgress >= 1)
             {
                 //print("process complete");
                 selectionStartTime = Time.time;
+
+                ResourceProvider resourceProvider = selectedLocation.GetComponent<ResourceProvider>();
+                if (resourceProvider != null)
+                {
+                    if (!resourceProvider.CanAfford)
+                    {
+                        Input_OnMouseRelease();
+                        return;
+                    }
+
+                    resourceProvider.ConsumeCost();
+                } 
 
                 SwarmMember swarmMember = Swarm.NextIdle;
                 if (swarmMember != null)
@@ -45,7 +57,7 @@ public class Player_Selection : MonoBehaviour
 
     private void Input_OnMousePress()
     {
-        if (player.Input.MouseOverUI) return;
+        if (player.Input.MouseOverUI || player.Building.IsPlacing) return;
 
         Ray ray = player.Camera.ScreenPointToRay(player.Input.MousePosition);
         //Debug.DrawRay(ray.origin, ray.direction * rayCastDistance, Color.red, 10f);
@@ -56,14 +68,26 @@ public class Player_Selection : MonoBehaviour
                 UI.BuildMenu.gameObject.SetActive(true);
             }
 
-            else if (Swarm.HasIdleMember)
+            else if (hit.collider.TryGetComponent<ResourceProvider>(out ResourceProvider resourceProvider) )
             {
-                selectionStartTime = Time.time;
-                UI.SelectionIndicator.gameObject.SetActive(true);
+                if (Swarm.HasIdleMember && resourceProvider.CanAfford)
+                {
+                    selectionStartTime = Time.time;
+                    UI.SelectionIndicator.gameObject.SetActive(true);
+                    UI.SelectionIndicator.SetColor(true);
 
-                Location location = hit.collider.GetComponent<Location>();
-                selectedLocation = location;
+                    //Location location = hit.collider.GetComponent<Location>();
+                    selectedLocation = resourceProvider;
+                }
+
+                else
+                {
+                    UI.SelectionIndicator.gameObject.SetActive(true);
+                    UI.SelectionIndicator.SetColor(false);
+                    UI.SelectionIndicator.SetProgress(1);
+                }
             }
+            
         }
 
         else if (UI.BuildMenu.gameObject.activeSelf)
@@ -74,6 +98,8 @@ public class Player_Selection : MonoBehaviour
 
     private void Input_OnMouseRelease()
     {
+        if (player.Input.MouseOverUI || player.Building.IsPlacing) return;
+
         if (UI.SelectionIndicator.gameObject.activeSelf)
         {
             UI.SelectionIndicator.gameObject.SetActive(false);

@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
 
     [SerializeField] LayerMask swarmLayer;
     [SerializeField] LayerMask locationLayer;
+    [SerializeField] LayerMask terrainLayer;
 
     private void Awake()
     {
@@ -17,4 +18,5 @@ public class Game : MonoBehaviour
 
     public static LayerMask SwarmLayer => Instance.swarmLayer;
     public static LayerMask LocationLayer => Instance.locationLayer;
+    public static LayerMask TerrainLayer => Instance.terrainLayer;
 }

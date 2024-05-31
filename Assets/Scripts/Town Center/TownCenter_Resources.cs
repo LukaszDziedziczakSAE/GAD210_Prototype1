@@ -34,4 +34,37 @@ public class TownCenter_Resources : MonoBehaviour
         if (SockpileResource(resource.Type) == null) return false;
         return SockpileResource(resource.Type).Amount >= resource.Amount;
     }
+
+    public void RemoveResource(Resource resource)
+    {
+        if (resource.Type == Resource.EType.None) return;
+
+        Resource stockpileResource = SockpileResource(resource.Type);
+        if (resource.Amount < stockpileResource.Amount)
+        {
+            stockpileResource.Remove(resource.Amount);
+        }
+        else
+        {
+            Stockpile.Remove(stockpileResource);
+        }
+
+        UI.Resources.UpdateResourceList();
+    }
+
+    public void RemoveResources(Resource[] resources)
+    {
+        foreach (Resource resource in resources)
+        {
+            RemoveResource(resource);
+        }
+    }
+    
+    public bool CanAfford(Resource resource)
+    {
+        if (SockpileResource(resource.Type) == null) return false;
+        return SockpileResource(resource.Type).Amount >= resource.Amount;
+    }
+
+    
 }

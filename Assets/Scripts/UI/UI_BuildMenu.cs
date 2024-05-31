@@ -18,6 +18,7 @@ public class UI_BuildMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private void OnDisable()
     {
         ClearList();
+        Player.Instance.Input.MouseOverUI = false;
     }
 
     public void ClearList()

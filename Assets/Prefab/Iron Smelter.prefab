@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d85ca54b6f35321429db985d72b378a5, type: 2}
+  - {fileID: 2100000, guid: d63fdd068a4a3ca4caa4766b5490466b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,9 +112,9 @@ GameObject:
   - component: {fileID: 8061627680738329273}
   - component: {fileID: 1912873114073717119}
   - component: {fileID: 6972637241055347386}
-  - component: {fileID: 3881943143551889320}
+  - component: {fileID: 8570665915399019805}
   m_Layer: 7
-  m_Name: Wood Plank Maker
+  m_Name: Iron Smelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,11 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Collider>k__BackingField: {fileID: 8061627680738329273}
   localAreaSize: 4
-  <JobName>k__BackingField: Making Wood Planks
+  <JobName>k__BackingField: Smelting Iron
   <JobDuration>k__BackingField: 10
-  <ResourceType>k__BackingField: 3
+  <ResourceType>k__BackingField: 5
   <Cost>k__BackingField:
-    <Type>k__BackingField: 1
+    <Type>k__BackingField: 4
     <Amount>k__BackingField: 1
 --- !u!114 &6972637241055347386
 MonoBehaviour:
@@ -194,7 +194,7 @@ MonoBehaviour:
   <MeshRenderer>k__BackingField: {fileID: 7563927286935396973}
   goodPlacement: {fileID: 2100000, guid: 7361f1ea981cda746bf7510e9e18271e, type: 2}
   badPlacement: {fileID: 2100000, guid: af471728a6da8d24f970ecaac7059631, type: 2}
---- !u!54 &3881943143551889320
+--- !u!54 &8570665915399019805
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

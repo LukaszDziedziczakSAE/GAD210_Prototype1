@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,7 +21,9 @@ public class Resource : IEquatable<Resource>
         None,
         Wood,
         Stone,
-        WoodPlanks
+        WoodPlanks,
+        IronOre,
+        Iron
     }
 
     public void Add(int amount)

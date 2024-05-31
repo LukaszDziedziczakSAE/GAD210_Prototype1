@@ -45,4 +45,8 @@ public class SwarmMemberSpawner : MonoBehaviour
         UI.Swarm.UpdateSwarmList();
     }
 
+    public void SpawnNew(int amount = 1)
+    {
+        membersToSpawn += amount;
+    }
 }

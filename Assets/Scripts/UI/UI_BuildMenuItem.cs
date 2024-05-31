@@ -41,6 +41,8 @@ public class UI_BuildMenuItem : MonoBehaviour
 
     public void OnButtonPress()
     {
-        print("pressed " + buildingConfig.BuildingName + " build button");
+        //print("pressed " + buildingConfig.BuildingName + " build button");
+        Player.Instance.Building.BeginPlacement(buildingConfig);
     }
+
 }

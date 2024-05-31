@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0ffe41792306040ac43e034cabcb31, type: 3}
-  m_Name: WoodPlankMaker
+  m_Name: IronSmelter
   m_EditorClassIdentifier: 
-  <BuildingPrefab>k__BackingField: {fileID: 6972637241055347386, guid: cac141f272fa77e49bf5e189b57aeb3b,
+  <BuildingPrefab>k__BackingField: {fileID: 6972637241055347386, guid: 8655236a51152cb4197e28d52318a3fc,
     type: 3}
-  <Type>k__BackingField: 3
-  <BuildingName>k__BackingField: Wood Plank Maker
+  <Type>k__BackingField: 5
+  <BuildingName>k__BackingField: Iron Smelter
   <Icon>k__BackingField: {fileID: 0}
   <BuildCost>k__BackingField:
-  - <Type>k__BackingField: 1
+  - <Type>k__BackingField: 3
     <Amount>k__BackingField: 10
   - <Type>k__BackingField: 2
-    <Amount>k__BackingField: 10
+    <Amount>k__BackingField: 20

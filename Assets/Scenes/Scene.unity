@@ -353,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!1 &149341305
+--- !u!1 &319296606
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,29 +361,103 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 149341306}
-  m_Layer: 0
-  m_Name: Resource Manager
+  - component: {fileID: 319296607}
+  - component: {fileID: 319296610}
+  - component: {fileID: 319296609}
+  - component: {fileID: 319296608}
+  m_Layer: 7
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &149341306
+--- !u!4 &319296607
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149341305}
+  m_GameObject: {fileID: 319296606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 189.77513, y: -1.8412387, z: 92.0539}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 10, y: 0.5, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 960845921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &319296608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319296606}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &319296609
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319296606}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4f826cf269851a44b9d7c8665b94653b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &319296610
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319296606}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +608,7 @@ GameObject:
   - component: {fileID: 387872947}
   - component: {fileID: 387872946}
   - component: {fileID: 387872945}
+  - component: {fileID: 387872948}
   m_Layer: 7
   m_Name: Town Center
   m_TagString: Untagged
@@ -624,6 +699,33 @@ MonoBehaviour:
   <JobName>k__BackingField: Idle
   <Resources>k__BackingField: {fileID: 387872946}
   <Spawner>k__BackingField: {fileID: 387872945}
+--- !u!54 &387872948
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387872942}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +957,9 @@ MonoBehaviour:
   locationLayer:
     serializedVersion: 2
     m_Bits: 128
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &466768542
 Transform:
   m_ObjectHideFlags: 0
@@ -952,6 +1057,7 @@ MonoBehaviour:
   <Input>k__BackingField: {fileID: 575432115}
   <Camera>k__BackingField: {fileID: 330585545}
   <Building>k__BackingField: {fileID: 575432118}
+  <Resources>k__BackingField: {fileID: 387872946}
 --- !u!114 &575432118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,8 +1070,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ce9bc9a40449a4982689b4e183baf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 575432117}
   <Buildables>k__BackingField:
   - {fileID: 11400000, guid: 3f75e0f0fbce9404d988344d8c680d9d, type: 2}
+  - {fileID: 11400000, guid: ffeab4332b65543439255313acdfda11, type: 2}
+  - {fileID: 11400000, guid: c1a858a388d5e2142a19bf463080e340, type: 2}
+  <IsPlacing>k__BackingField: 0
 --- !u!1 &685119005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 713461356}
   indicator: {fileID: 1865929786}
+  regularColor: {r: 1, g: 1, b: 1, a: 1}
+  notUsableColor: {r: 0.7924528, g: 0.02616591, b: 0.02616591, a: 1}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1299,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883740603}
   m_CullTransparentMesh: 1
+--- !u!1 &960845917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960845921}
+  - component: {fileID: 960845920}
+  - component: {fileID: 960845919}
+  - component: {fileID: 960845918}
+  m_Layer: 7
+  m_Name: Iron Resource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &960845918
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960845917}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &960845919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960845917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88115b549cd0f6540ab1022f49824933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Collider>k__BackingField: {fileID: 960845920}
+  localAreaSize: 0
+  <JobName>k__BackingField: Wood Gathering
+  <JobDuration>k__BackingField: 5
+  <ResourceType>k__BackingField: 4
+  <Cost>k__BackingField:
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 0
+--- !u!65 &960845920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960845917}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!4 &960845921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960845917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 240.7, y: 0, z: 74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 319296607}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055528685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1652,9 @@ MonoBehaviour:
   <JobName>k__BackingField: Stone Gathering
   <JobDuration>k__BackingField: 5
   <ResourceType>k__BackingField: 2
+  <Cost>k__BackingField:
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 0
 --- !u!65 &1432375557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1702,7 +1920,7 @@ GameObject:
   - component: {fileID: 1620960390}
   - component: {fileID: 1620960389}
   - component: {fileID: 1620960392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2629,6 +2847,9 @@ MonoBehaviour:
   <JobName>k__BackingField: Wood Gathering
   <JobDuration>k__BackingField: 5
   <ResourceType>k__BackingField: 1
+  <Cost>k__BackingField:
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 0
 --- !u!54 &2129623624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2664,9 +2885,9 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1620960391}
-  - {fileID: 149341306}
   - {fileID: 387872943}
   - {fileID: 2129623622}
+  - {fileID: 960845921}
   - {fileID: 1432375558}
   - {fileID: 685119006}
   - {fileID: 1811845010}
