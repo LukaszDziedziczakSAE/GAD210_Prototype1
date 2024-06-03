@@ -883,7 +883,7 @@ MonoBehaviour:
   townCenter: {fileID: 387872947}
   swarmMemberPrefab: {fileID: 626087767713141720, guid: e056bc3b46c658b478cae6f2c10f7e74,
     type: 3}
-  startingSwarmSize: 100
+  startingSwarmSize: 1000
 --- !u!114 &387872946
 MonoBehaviour:
   m_ObjectHideFlags: 0
