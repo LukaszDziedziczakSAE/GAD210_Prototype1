@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_Selection : MonoBehaviour
@@ -15,6 +16,7 @@ public class Player_Selection : MonoBehaviour
     float selectionProgress => selectionDuration / selectionTime;
 
     Location selectedLocation;
+    Building selectedBuilding;
 
     private void OnEnable()
     {
@@ -32,25 +34,40 @@ public class Player_Selection : MonoBehaviour
                 //print("process complete");
                 selectionStartTime = Time.time;
 
-                ResourceProvider resourceProvider = selectedLocation.GetComponent<ResourceProvider>();
-                if (resourceProvider != null)
+                if (selectedLocation != null)
                 {
-                    if (!resourceProvider.CanAfford)
+                    ResourceProvider resourceProvider = selectedLocation.GetComponent<ResourceProvider>();
+                    if (resourceProvider != null)
+                    {
+                        if (!resourceProvider.CanAfford)
+                        {
+                            Input_OnMouseRelease();
+                            return;
+                        }
+
+                        resourceProvider.ConsumeCost();
+                    }
+
+                    if (!Swarm.HasIdleMember)
                     {
                         Input_OnMouseRelease();
                         return;
                     }
 
-                    resourceProvider.ConsumeCost();
-                } 
-
-                SwarmMember swarmMember = Swarm.NextIdle;
-                if (swarmMember != null)
-                {
-                    swarmMember.Job.SetCurrentJob(selectedLocation);
+                    for (int sm = 0; sm < UI.MultiplicationSelector.Multipler; sm++)
+                    {
+                        SwarmMember swarmMember = Swarm.NextIdle;
+                        if (swarmMember != null)
+                        {
+                            swarmMember.Job.SetCurrentJob(selectedLocation);
+                        }
+                    }
                 }
 
-                if (!Swarm.HasIdleMember) Input_OnMouseRelease();
+                else if (selectedBuilding != null)
+                {
+
+                }
             }
         }
     }
@@ -66,6 +83,26 @@ public class Player_Selection : MonoBehaviour
             if (hit.collider.TryGetComponent<TownCenter>(out TownCenter townCenter))
             {
                 UI.BuildMenu.gameObject.SetActive(true);
+            }
+
+            else if (hit.collider.TryGetComponent<Building>(out Building building) &&
+                building.State == Building.EState.placed)
+            {
+                if (Swarm.HasIdleMember)
+                {
+                    selectionStartTime = Time.time;
+                    UI.SelectionIndicator.gameObject.SetActive(true);
+                    UI.SelectionIndicator.SetColor(true);
+
+                    selectedBuilding = building;
+                }
+
+                else
+                {
+                    UI.SelectionIndicator.gameObject.SetActive(true);
+                    UI.SelectionIndicator.SetColor(false);
+                    UI.SelectionIndicator.SetProgress(1);
+                }
             }
 
             else if (hit.collider.TryGetComponent<ResourceProvider>(out ResourceProvider resourceProvider) )
@@ -105,6 +142,7 @@ public class Player_Selection : MonoBehaviour
             UI.SelectionIndicator.gameObject.SetActive(false);
         }
         selectedLocation = null;
+        selectedBuilding = null;
     }
 
     private void OnDisable()

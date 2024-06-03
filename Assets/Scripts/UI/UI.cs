@@ -10,11 +10,13 @@ public class UI : MonoBehaviour
     [SerializeField] public UI_Resources resources;
     [SerializeField] public UI_SelectionIndicator selectionIndicator;
     [SerializeField] public UI_BuildMenu buildMenu;
+    [SerializeField] UI_MultiplicationSelector multiplicationSelector;
 
     public static UI_Swarm Swarm => Instance.swarm;
     public static UI_Resources Resources => Instance.resources;
     public static UI_SelectionIndicator SelectionIndicator => Instance.selectionIndicator;
     public static UI_BuildMenu BuildMenu => Instance.buildMenu;
+    public static UI_MultiplicationSelector MultiplicationSelector => Instance.multiplicationSelector;
 
     private void Awake()
     {

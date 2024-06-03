@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 3775162913914063070}
   - component: {fileID: 8265486227460566471}
   - component: {fileID: 7479942777449621772}
+  - component: {fileID: 6264189163704310596}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -217,3 +218,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &6264189163704310596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230019081317577363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e677d317b5fe5fe46ab3f5cbca073ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildRate: 1

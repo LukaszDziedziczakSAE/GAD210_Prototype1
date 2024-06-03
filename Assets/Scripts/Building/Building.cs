@@ -28,7 +28,8 @@ public class Building : MonoBehaviour
     {
         none,
         placing,
-        placed
+        placed,
+        complete
     }
 
     public void SetToPlacingState()
