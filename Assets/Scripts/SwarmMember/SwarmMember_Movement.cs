@@ -26,7 +26,8 @@ public class SwarmMember_Movement : MonoBehaviour
         if (!needsDestination && !IsMoving && InProximityToDestination)
         {
             if (swarmMember.Job.State == SwarmMember_Job.EState.idle ||
-                swarmMember.Job.State == SwarmMember_Job.EState.working)
+                swarmMember.Job.State == SwarmMember_Job.EState.working ||
+                swarmMember.Job.State == SwarmMember_Job.EState.building)
             {
                 needsDestination = true;
             }
@@ -86,5 +87,25 @@ public class SwarmMember_Movement : MonoBehaviour
     public bool PoistionNearDestination(Vector3 position)
     {
         return Vector3.Distance(position, swarmMember.NavMeshAgent.destination) <= (swarmMember.NavMeshAgent.radius * 2);
+    }
+
+    public bool CurrentLocationIsIncompleteBuilding
+    {
+        get
+        {
+            //Debug.Log("CurrentLocationIsIncompleteBuilding");
+            if (CurrentLocation != null)
+            {
+                Building building = CurrentLocation.GetComponent<Building>();
+                //if (building != null) Debug.Log("Is Building");
+                if (building != null && building.State == Building.EState.placed)
+                {
+                    //Debug.Log("is in placed state");
+                    return true;
+                }
+            }
+            else Debug.LogWarning("CurrentLocation is NULL");
+            return false;
+        }
     }
 }

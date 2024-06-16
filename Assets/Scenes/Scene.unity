@@ -883,7 +883,7 @@ MonoBehaviour:
   townCenter: {fileID: 387872947}
   swarmMemberPrefab: {fileID: 626087767713141720, guid: e056bc3b46c658b478cae6f2c10f7e74,
     type: 3}
-  startingSwarmSize: 1000
+  startingSwarmSize: 10
 --- !u!114 &387872946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,7 +896,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742cb30788944ac4ca28cac31a181314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stockpile: []
+  Stockpile:
+  - <Type>k__BackingField: 1
+    <Amount>k__BackingField: 10
+  - <Type>k__BackingField: 2
+    <Amount>k__BackingField: 10
 --- !u!114 &387872947
 MonoBehaviour:
   m_ObjectHideFlags: 0

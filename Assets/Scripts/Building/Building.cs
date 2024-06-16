@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -7,6 +8,7 @@ public class Building : MonoBehaviour
     [field: SerializeField] public EState State {  get; private set; }
     [field: SerializeField] public Location Location { get; private set; }
     [field: SerializeField] public MeshRenderer MeshRenderer { get; private set; }
+    [SerializeField] Transform buildingModel;
 
     [Header("Placement")]
     [SerializeField] Material goodPlacement;
@@ -14,6 +16,10 @@ public class Building : MonoBehaviour
 
     Material buildingMaterial;
     int inTrigger;
+    float buildCompletion;
+
+    float completedHeight;
+    float completedScale;
 
     private void Update()
     {
@@ -67,6 +73,11 @@ public class Building : MonoBehaviour
 
         Housing housing = GetComponent<Housing>();
         if (housing != null) housing.OnPlacement();
+
+        buildCompletion = 0;
+        completedHeight = buildingModel.localPosition.y;
+        completedScale = buildingModel.localScale.y;
+        ShowBuildCompletion();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,4 +89,31 @@ public class Building : MonoBehaviour
     {
         if (other.GetComponent<Location>() != null) inTrigger--;
     }
+
+    public void AddToBuildingCompletion(float amount)
+    {
+        if (State != EState.placed) return;
+        //Debug.Log("Adding to building completing = " + amount);
+
+        buildCompletion = Mathf.Min(1,  buildCompletion + amount);
+
+        if (buildCompletion >= 1)
+        {
+            State = EState.complete;
+            Debug.Log(name + " finished building");
+        }
+
+        ShowBuildCompletion();
+        //Debug.Log("Current completiong = " + buildCompletion);
+    }
+
+    private void ShowBuildCompletion()
+    {
+        float currentHeight = Mathf.Lerp(0.1f, completedHeight, buildCompletion);
+        float currentScale = Mathf.Lerp(0.1f, completedScale, buildCompletion);
+
+        buildingModel.localPosition = new UnityEngine.Vector3(buildingModel.localPosition.x, currentHeight, buildingModel.localPosition.z);
+        buildingModel.localScale = new UnityEngine.Vector3(buildingModel.localScale.x, currentScale, buildingModel.localScale.z);
+    }
+
 }

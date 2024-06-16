@@ -136,6 +136,7 @@ MonoBehaviour:
   <Collider>k__BackingField: {fileID: 7425591031512075390}
   <Movement>k__BackingField: {fileID: 9169921856464595670}
   <Job>k__BackingField: {fileID: 6431485010016266467}
+  <TownCenter>k__BackingField: {fileID: 0}
 --- !u!195 &4835731913778522177
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -212,3 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swarmMember: {fileID: 626087767713141720}
   <State>k__BackingField: 0
+  buildRate: 0.1

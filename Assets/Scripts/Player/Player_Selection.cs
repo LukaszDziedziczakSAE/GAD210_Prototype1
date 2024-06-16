@@ -34,7 +34,25 @@ public class Player_Selection : MonoBehaviour
                 //print("process complete");
                 selectionStartTime = Time.time;
 
-                if (selectedLocation != null)
+                if (selectedBuilding != null)
+                {
+                    if (!Swarm.HasIdleMember)
+                    {
+                        Input_OnMouseRelease();
+                        return;
+                    }
+
+                    for (int sm = 0; sm < UI.MultiplicationSelector.Multipler; sm++)
+                    {
+                        SwarmMember swarmMember = Swarm.NextIdle;
+                        if (swarmMember != null)
+                        {
+                            swarmMember.Job.SetCurrentJob(selectedBuilding);
+                        }
+                    }
+                }
+
+                else if (selectedLocation != null)
                 {
                     ResourceProvider resourceProvider = selectedLocation.GetComponent<ResourceProvider>();
                     if (resourceProvider != null)
@@ -62,11 +80,6 @@ public class Player_Selection : MonoBehaviour
                             swarmMember.Job.SetCurrentJob(selectedLocation);
                         }
                     }
-                }
-
-                else if (selectedBuilding != null)
-                {
-
                 }
             }
         }

@@ -72,5 +72,4 @@ public class Player_Building : MonoBehaviour
             CompletePlacement();
         }
     }
-
 }

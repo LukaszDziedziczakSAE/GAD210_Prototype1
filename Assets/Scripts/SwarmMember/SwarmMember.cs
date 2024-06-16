@@ -42,10 +42,14 @@ public class SwarmMember : MonoBehaviour
                     return "Idle";
 
                 case SwarmMember_Job.EState.movingToJob:
-                    return Movement.CurrentLocation.JobName;
+                    if (Movement.CurrentLocationIsIncompleteBuilding) return "Building Constructor";
+                    else return Movement.CurrentLocation.JobName;
 
                 case SwarmMember_Job.EState.working:
                     return Movement.CurrentLocation.JobName;
+
+                case SwarmMember_Job.EState.building:
+                    return "Building Constructor";
 
                 case SwarmMember_Job.EState.returningHome:
                     return Movement.LastLocation.JobName;
