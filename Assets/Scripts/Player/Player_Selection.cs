@@ -36,12 +36,6 @@ public class Player_Selection : MonoBehaviour
 
                 if (selectedBuilding != null)
                 {
-                    if (!Swarm.HasIdleMember)
-                    {
-                        Input_OnMouseRelease();
-                        return;
-                    }
-
                     for (int sm = 0; sm < UI.MultiplicationSelector.Multipler; sm++)
                     {
                         SwarmMember swarmMember = Swarm.NextIdle;
@@ -55,18 +49,8 @@ public class Player_Selection : MonoBehaviour
                 else if (selectedLocation != null)
                 {
                     ResourceProvider resourceProvider = selectedLocation.GetComponent<ResourceProvider>();
-                    if (resourceProvider != null)
-                    {
-                        if (!resourceProvider.CanAfford)
-                        {
-                            Input_OnMouseRelease();
-                            return;
-                        }
 
-                        resourceProvider.ConsumeCost();
-                    }
-
-                    if (!Swarm.HasIdleMember)
+                    if (resourceProvider != null && !resourceProvider.CanAfford)
                     {
                         Input_OnMouseRelease();
                         return;
@@ -75,11 +59,23 @@ public class Player_Selection : MonoBehaviour
                     for (int sm = 0; sm < UI.MultiplicationSelector.Multipler; sm++)
                     {
                         SwarmMember swarmMember = Swarm.NextIdle;
-                        if (swarmMember != null)
+                        if (swarmMember != null && resourceProvider != null)
                         {
+                            resourceProvider.ConsumeCost();
                             swarmMember.Job.SetCurrentJob(selectedLocation);
                         }
+                        else
+                        {
+                            Input_OnMouseRelease();
+                            return;
+                        }
                     }
+                }
+
+                if (!Swarm.HasIdleMember)
+                {
+                    Input_OnMouseRelease();
+                    return;
                 }
             }
         }

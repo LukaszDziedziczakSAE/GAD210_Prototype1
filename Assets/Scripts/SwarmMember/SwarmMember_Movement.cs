@@ -31,12 +31,14 @@ public class SwarmMember_Movement : MonoBehaviour
             {
                 needsDestination = true;
             }
-            else if (swarmMember.Job.State == SwarmMember_Job.EState.movingToJob)
+            else if (swarmMember.Job.State == SwarmMember_Job.EState.movingToJob ||
+                swarmMember.Job.State == SwarmMember_Job.EState.movingToBuilding)
             {
                 swarmMember.Job.ArrivedAtJobSite();
             }
 
-            else if (swarmMember.Job.State == SwarmMember_Job.EState.returningHome)
+            else if (swarmMember.Job.State == SwarmMember_Job.EState.returningHome ||
+                swarmMember.Job.State == SwarmMember_Job.EState.returningHomeFromBuilding)
             {
                 swarmMember.Job.ArrivedAtHome();
             }
@@ -82,6 +84,12 @@ public class SwarmMember_Movement : MonoBehaviour
         SetCurrentLocation(newLocation);
         needsDestination = true; 
         MoveToPositionInLocalArea();
+    }
+
+    public void MoveToNewLocation(Building building)
+    {
+        Location location = building.GetComponent<Location>();
+        if (location != null) MoveToNewLocation(location);
     }
 
     public bool PoistionNearDestination(Vector3 position)

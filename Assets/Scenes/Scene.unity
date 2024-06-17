@@ -901,6 +901,8 @@ MonoBehaviour:
     <Amount>k__BackingField: 10
   - <Type>k__BackingField: 2
     <Amount>k__BackingField: 10
+  - <Type>k__BackingField: 3
+    <Amount>k__BackingField: 10
 --- !u!114 &387872947
 MonoBehaviour:
   m_ObjectHideFlags: 0

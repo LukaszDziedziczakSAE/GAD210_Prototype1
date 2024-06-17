@@ -6,7 +6,7 @@ public class Housing : Location
 {
     [SerializeField] int housingProvided;
 
-    public void OnPlacement()
+    public void IncreaseSwarmSize()
     {
         TownCenter.Instance.Spawner.SpawnNew(housingProvided);
     }

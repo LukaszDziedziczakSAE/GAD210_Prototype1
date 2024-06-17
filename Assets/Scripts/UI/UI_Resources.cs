@@ -9,6 +9,11 @@ public class UI_Resources : MonoBehaviour
 
     List<UI_ResourceListItem> list = new List<UI_ResourceListItem>();
 
+    private void Start()
+    {
+        UpdateResourceList();
+    }
+
     public void UpdateResourceList()
     {
         ClearList();

@@ -71,9 +71,6 @@ public class Building : MonoBehaviour
         MeshRenderer.material = buildingMaterial;
         State = EState.placed;
 
-        Housing housing = GetComponent<Housing>();
-        if (housing != null) housing.OnPlacement();
-
         buildCompletion = 0;
         completedHeight = buildingModel.localPosition.y;
         completedScale = buildingModel.localScale.y;
@@ -99,6 +96,8 @@ public class Building : MonoBehaviour
 
         if (buildCompletion >= 1)
         {
+            Housing housing = GetComponent<Housing>();
+            if (housing != null) housing.IncreaseSwarmSize();
             State = EState.complete;
             Debug.Log(name + " finished building");
         }

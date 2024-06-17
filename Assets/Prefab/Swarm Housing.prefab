@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Collider>k__BackingField: {fileID: 9209366237112804451}
-  localAreaSize: 0
+  localAreaSize: 2
   <JobName>k__BackingField: (House)
   housingProvided: 5
 --- !u!54 &-2448265279631678755

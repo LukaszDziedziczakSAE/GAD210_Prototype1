@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class SwarmMember_Job : MonoBehaviour
 {
@@ -21,8 +22,10 @@ public class SwarmMember_Job : MonoBehaviour
     {
         idle,
         movingToJob,
+        movingToBuilding,
         building,
         working,
+        returningHomeFromBuilding,
         returningHome
     }
 
@@ -53,7 +56,7 @@ public class SwarmMember_Job : MonoBehaviour
 
             if (building.State == Building.EState.complete)
             {
-                State = EState.returningHome;
+                State = EState.returningHomeFromBuilding;
                 swarmMember.MoveBackToTownCenter();
                 Debug.Log(name + " moving home");
             }
@@ -74,7 +77,10 @@ public class SwarmMember_Job : MonoBehaviour
 
     public void SetCurrentJob(Building building)
     {
-        SetCurrentJob(building.GetComponent<Location>());
+        State = EState.movingToBuilding;
+        swarmMember.Movement.MoveToNewLocation(building);
+        UI.Swarm.UpdateSwarmList();
+        Debug.Log(name + " moving to building site");
     }
 
     public void ArrivedAtJobSite()
