@@ -10,6 +10,7 @@ public class SwarmMember : MonoBehaviour
     [field: SerializeField] public SwarmMember_Movement Movement { get; private set; }
     [field: SerializeField] public SwarmMember_Job Job { get; private set; }
     [field: SerializeField] public TownCenter TownCenter { get; private set; }
+    [field: SerializeField] public Animator Animator { get; private set; }
 
     private void Awake()
     {

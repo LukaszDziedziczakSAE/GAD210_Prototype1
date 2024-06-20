@@ -59,6 +59,8 @@ public class SwarmMember_Movement : MonoBehaviour
             }
         }
         else idleTime = 0;
+        swarmMember.Animator.SetFloat("Speed", lastPosition != transform.position ? 1 : 0);
+
         lastPosition = transform.position;
     }
 
