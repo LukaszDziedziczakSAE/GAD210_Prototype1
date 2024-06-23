@@ -193,7 +193,7 @@ MonoBehaviour:
   <State>k__BackingField: 0
   <Location>k__BackingField: {fileID: 1912873114073717119}
   <MeshRenderer>k__BackingField: {fileID: 7563927286935396973}
-  buildingModel: {fileID: 4131868104273907599}
+  buildingModel: {fileID: 3959693005058911987}
   goodPlacement: {fileID: 2100000, guid: 7361f1ea981cda746bf7510e9e18271e, type: 2}
   badPlacement: {fileID: 2100000, guid: af471728a6da8d24f970ecaac7059631, type: 2}
 --- !u!54 &8570665915399019805
