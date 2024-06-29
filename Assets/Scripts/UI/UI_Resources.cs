@@ -24,7 +24,7 @@ public class UI_Resources : MonoBehaviour
             string resourceName = resource.Type.ToString();
             if (resourceName == "WoodPlanks") resourceName = "Wood Planks";
             else if (resourceName == "IronOre") resourceName = "Iron Ore";
-            resourceListItem.Initilize(resource.Amount.ToString() + " " + resourceName);
+            resourceListItem.Initilize(resource.Amount.ToString(), UI.ResourceIcon(resource.Type));
             list.Add(resourceListItem);
         }
     }

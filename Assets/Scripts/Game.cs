@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -19,4 +20,14 @@ public class Game : MonoBehaviour
     public static LayerMask SwarmLayer => Instance.swarmLayer;
     public static LayerMask LocationLayer => Instance.locationLayer;
     public static LayerMask TerrainLayer => Instance.terrainLayer;
+
+    public static void ResetGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public static void ExitGame()
+    {
+        Application.Quit();
+    }
 }
