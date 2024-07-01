@@ -1339,7 +1339,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -8097,7 +8097,17 @@ MonoBehaviour:
   buildMenu: {fileID: 1858338466}
   pauseMenu: {fileID: 2081351713}
   multiplicationSelector: {fileID: 343132810}
-  ResourceIconPairs: []
+  ResourceIconPairs:
+  - Type: 1
+    Icon: {fileID: 2800000, guid: 29b8bd24029e4134394fccc6127a7f49, type: 3}
+  - Type: 3
+    Icon: {fileID: 2800000, guid: 38897a9c5b619714abad01c1a151ab0c, type: 3}
+  - Type: 2
+    Icon: {fileID: 2800000, guid: cd6b1faf88b9f5a468832b7c9ee314cf, type: 3}
+  - Type: 5
+    Icon: {fileID: 2800000, guid: e46e4040e871a4f4081f5179a4a5bc79, type: 3}
+  - Type: 4
+    Icon: {fileID: 2800000, guid: 6fd1f5cc3db665d4daa1ccc4f182288c, type: 3}
 --- !u!1001 &1821745681
 PrefabInstance:
   m_ObjectHideFlags: 0

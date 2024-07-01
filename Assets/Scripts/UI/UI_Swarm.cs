@@ -31,7 +31,7 @@ public class UI_Swarm : MonoBehaviour
         foreach(KeyValuePair<string, int> keyValuePair in tally)
         {
             UI_SwarmListItem swarmListItem = Instantiate(swarmListItemPrefab, transform);
-            swarmListItem.Initilize(keyValuePair.Key + " " + keyValuePair.Value.ToString() + "/" + Swarm.Members.Count.ToString());
+            swarmListItem.Initilize(keyValuePair.Value.ToString(), keyValuePair.Key);
             list.Add(swarmListItem);
         }
     }
